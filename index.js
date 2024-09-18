@@ -5,11 +5,11 @@ const app = express();
 app.use(express.json());
 
 const discordWebhookUrl =
-  "https://discord.com/api/webhooks/1285929730951872583/uFnI8Z7Inf4U-ggw5vJ3fzKqvWWIRgA0i1A1SPjXIpM4jFQPWNjocNbdbonm9Awik2Hu";
+  "https://discord.com/api/webhooks/1285938065457807370/so-pdAZO2i1bFqCe-b0JwKBJ4DR35GwTrsrvPPPEHPs0XuNomzVbzotLlSeLNxJJFyJ6";
 
 const sendDiscordNotification = (pullRequestDetails) => {
   const message = {
-    content: `New Pull Request: ${pullRequestDetails.title}\n${pullRequestDetails.url}`,
+    content: `<@&725274482226495558> New Pull Request: ${pullRequestDetails.title}\n${pullRequestDetails.url}`,
   };
 
   return axios
