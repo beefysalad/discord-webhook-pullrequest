@@ -9,7 +9,7 @@ const discordWebhookUrl =
 
 const sendDiscordNotification = (pullRequestDetails) => {
   const message = {
-    content: `<@&725274482226495558> New Pull Request: ${pullRequestDetails.title}\n${pullRequestDetails.url}`,
+    content: `<@725274482226495558> New Pull Request: ${pullRequestDetails.title}\n${pullRequestDetails.url}`,
   };
 
   return axios
