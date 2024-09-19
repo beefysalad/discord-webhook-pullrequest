@@ -10,11 +10,10 @@ const discordWebhookUrl =
 const sendDiscordNotification = (pullRequestDetails) => {
   const message = {
     content: `Hello reviewers! 👋
-    \n**You have a new pull request pending for review**:
-    \n**Title**: *${pullRequestDetails.title}*
-    \n**Branch**: \`\`\`diff\n+ ${pullRequestDetails.sourceBranch}\`\`\` ➡️ \`\`\`diff\n- ${pullRequestDetails.targetBranch}\`\`\`
-    \n**URL**: ${pullRequestDetails.url}
-    \n
+    **You have a new pull request pending for review**:
+    **Title**: *${pullRequestDetails.title}*
+    **Branch**: \`\`\`diff\n+ ${pullRequestDetails.sourceBranch}\`\`\` ➡️ \`\`\`diff\n- ${pullRequestDetails.targetBranch}\`\`\`
+    **URL**: ${pullRequestDetails.url}
     Please review at your earliest convenience:
     <@725274482226495558>`,
   };
