@@ -12,7 +12,7 @@ const sendDiscordNotification = (pullRequestDetails) => {
     content: `Hello reviewers! 👋
     \n**You have a new pull request pending for review**:
     \n**Title**: *${pullRequestDetails.title}*
-    \n**Branch**: *${pullRequestDetails.branch}* ➡️ **Target**: *${pullRequestDetails.targetBranch}*
+    \n**Branch**: \`\`\`diff\n+ ${pullRequestDetails.sourceBranch}\`\`\` ➡️ \`\`\`diff\n- ${pullRequestDetails.targetBranch}\`\`\`
     \n**URL**: ${pullRequestDetails.url}
     \n
     Please review at your earliest convenience:
