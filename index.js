@@ -16,7 +16,7 @@ const sendDiscordNotification = (pullRequestDetails) => {
     \n**URL**: ${pullRequestDetails.url}
     \n
     Please review at your earliest convenience:
-    <@725274482226495558> <@1140908580455845888> <@398458598969180160> <@951362455047643147> <@618999279989817355> <@1184670552816894004>`,
+    <@725274482226495558>`,
   };
 
   return axios
@@ -41,15 +41,17 @@ app.post("/notify", (req, res) => {
     return res.status(400).send({ error: "Missing pull request details" });
   }
 
-  sendDiscordNotification({ title, url }).then((result) => {
-    if (result.success) {
-      res.status(200).send({ message: "Notification sent successfully" });
-    } else {
-      res
-        .status(500)
-        .send({ message: "Error sending notification", error: result.error });
+  sendDiscordNotification({ title, url, branch, targetBranch }).then(
+    (result) => {
+      if (result.success) {
+        res.status(200).send({ message: "Notification sent successfully" });
+      } else {
+        res
+          .status(500)
+          .send({ message: "Error sending notification", error: result.error });
+      }
     }
-  });
+  );
 });
 
 app.get("/", (req, res) => {
