@@ -12,6 +12,7 @@ const sendDiscordNotification = (pullRequestDetails) => {
     content: `Hello reviewers! 👋
     \n**You have a new pull request pending for review**:
     \n**Title**: *${pullRequestDetails.title}*
+    \n**Branch**: *${pullRequestDetails.branch}* ➡️ **Target**: *${pullRequestDetails.targetBranch}*
     \n**URL**: ${pullRequestDetails.url}
     \n
     Please review at your earliest convenience:
@@ -34,7 +35,8 @@ app.post("/notify", (req, res) => {
   const pullRequest = req.body.pull_request;
   const title = pullRequest.title;
   const url = pullRequest.html_url;
-
+  const branch = pullRequest.head.ref;
+  const targetBranch = pullRequest.base.ref;
   if (!title || !url) {
     return res.status(400).send({ error: "Missing pull request details" });
   }
