@@ -25,7 +25,9 @@ const sendDiscordNotification = (pullRequestDetails) => {
 
 // Endpoint to trigger the notification
 app.post("/notify", (req, res) => {
-  const { title, url } = req.body;
+  const pullRequest = req.body.pull_request;
+  const title = pullRequest.title;
+  const url = pullRequest.html_url;
 
   if (!title || !url) {
     return res.status(400).send({ error: "Missing pull request details" });
