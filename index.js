@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 const discordWebhookUrl =
-  "https://discord.com/api/webhooks/1285938065457807370/so-pdAZO2i1bFqCe-b0JwKBJ4DR35GwTrsrvPPPEHPs0XuNomzVbzotLlSeLNxJJFyJ6";
+  "https://discord.com/api/webhooks/1285929730951872583/uFnI8Z7Inf4U-ggw5vJ3fzKqvWWIRgA0i1A1SPjXIpM4jFQPWNjocNbdbonm9Awik2Hu";
 
 const sendDiscordNotification = (pullRequestDetails) => {
   const message = {
@@ -15,7 +15,7 @@ const sendDiscordNotification = (pullRequestDetails) => {
     **Branch**: \`\`\`diff\n+ ${pullRequestDetails.sourceBranch}\`\`\` ➡️ \`\`\`diff\n- ${pullRequestDetails.targetBranch}\`\`\`
     **URL**: ${pullRequestDetails.url}
     Please review at your earliest convenience:
-    <@725274482226495558>`,
+    <@1140908580455845888>`,
   };
 
   return axios
