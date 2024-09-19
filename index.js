@@ -5,19 +5,16 @@ const app = express();
 app.use(express.json());
 
 const discordWebhookUrl =
-  "https://discord.com/api/webhooks/1285929730951872583/uFnI8Z7Inf4U-ggw5vJ3fzKqvWWIRgA0i1A1SPjXIpM4jFQPWNjocNbdbonm9Awik2Hu";
+  "https://discord.com/api/webhooks/1285938065457807370/so-pdAZO2i1bFqCe-b0JwKBJ4DR35GwTrsrvPPPEHPs0XuNomzVbzotLlSeLNxJJFyJ6";
 
 const sendDiscordNotification = (pullRequestDetails) => {
   const message = {
-    content: `Hello reviewers! 👋
-    **You have a new pull request pending for review**:
-    **Title**: *${pullRequestDetails.title}*
-    **Branch**: \`\`\`diff\n+ ${pullRequestDetails.sourceBranch}\`\`\` ➡️ \`\`\`diff\n- ${pullRequestDetails.targetBranch}\`\`\`
-    **URL**: ${pullRequestDetails.url}
-    Please review at your earliest convenience:
-    <@1140908580455845888>`,
+    content: `**Hello reviewers!** 👋
+  **New Pull Request:** *${pullRequestDetails.title}*
+  **Branch:** \`${pullRequestDetails.branch}\` ➡️ \`${pullRequestDetails.targetBranch}\`
+  **URL:** ${pullRequestDetails.url}
+  **Required Reviewer/s:** <@1140908580455845888>`,
   };
-
   return axios
     .post(discordWebhookUrl, message)
     .then(() => {
@@ -29,7 +26,6 @@ const sendDiscordNotification = (pullRequestDetails) => {
     });
 };
 
-// Endpoint to trigger the notification
 app.post("/notify", (req, res) => {
   const pullRequest = req.body.pull_request;
   const title = pullRequest.title;
