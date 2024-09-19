@@ -9,7 +9,13 @@ const discordWebhookUrl =
 
 const sendDiscordNotification = (pullRequestDetails) => {
   const message = {
-    content: `Hi reviewer/s <@725274482226495558>, <@1140908580455845888>, <@398458598969180160>, <@951362455047643147>, <@618999279989817355>, <@1184670552816894004>  New Pull Request pending for your review: ${pullRequestDetails.title}\n${pullRequestDetails.url}`,
+    content: `Hello reviewers! 👋
+    \n**You have a new pull request pending for review**:
+    \n**Title**: *${pullRequestDetails.title}*
+    \n**URL**: ${pullRequestDetails.url}
+    \n
+    Please review at your earliest convenience:
+    <@725274482226495558> <@1140908580455845888> <@398458598969180160> <@951362455047643147> <@618999279989817355> <@1184670552816894004>`,
   };
 
   return axios
